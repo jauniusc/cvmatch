@@ -1,0 +1,35 @@
+{
+  "id": "example_02",
+  "scenario": "Dalinis atitikimas: Junior Java programuotojas -> Full-stack pozicija",
+  "X": {
+    "cv": "Gabija Kazlauskaitė\nJaunesnioji Java programuotoja\n\nPATIRTIS\n2024–dabar: Java programuotoja (praktika -> etatas), UAB „Fintech LT“, Kaunas. Kuriu mikroservisus su Spring Boot, rašau JUnit testus, dirbu su MySQL.\n\nPROJEKTAI\nBaigiamasis darbas: bibliotekos valdymo sistema (Java, Spring Boot, Thymeleaf).\nAsmeninis projektas: paprastas portfolio puslapis su HTML ir CSS.\n\nIŠSILAVINIMAS\nKauno technologijos universitetas, Programų sistemų bakalauras (2024).\n\nĮGŪDŽIAI\nJava, Spring Boot, MySQL, JUnit, Git, HTML, CSS, Maven.\n\nKALBOS\nLietuvių – gimtoji, anglų – B2.",
+    "job_ad": "Full-stack programuotojas (Kaunas)\n\nReikalavimai:\n- 2+ metų patirtis kuriant web aplikacijas\n- Backend: Java (Spring Boot) arba Node.js\n- Frontend: React ir TypeScript\n- Reliacinių duomenų bazių žinios\n- REST API kūrimo patirtis\n\nPrivalumas:\n- Docker\n- Testų automatizavimo patirtis\n- Darbo Agile komandoje patirtis\n\nSiūlome: 3000–4000 EUR bruto."
+  },
+  "y": {
+    "match_score": 52,
+    "matched_skills": [
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "REST API",
+      "Testų automatizavimas (JUnit)"
+    ],
+    "missing_skills": [
+      "React",
+      "TypeScript",
+      "2+ metų patirtis",
+      "Docker",
+      "Agile patirtis"
+    ],
+    "strengths": [
+      "Tinkamas backend technologijų rinkinys (Java, Spring Boot)",
+      "Patirtis rašant automatinius testus"
+    ],
+    "recommendations": [
+      "Sukurkite nedidelį projektą su React ir TypeScript ir įtraukite jį į CV su GitHub nuoroda",
+      "Aiškiai nurodykite, kad kuriami mikroservisai turi REST API",
+      "Jei įmonėje dirbama Scrum/Kanban principu, paminėkite tai"
+    ],
+    "verdict": "Iš dalies tinkamas"
+  }
+}

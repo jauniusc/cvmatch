@@ -1,0 +1,31 @@
+{
+  "id": "example_06",
+  "scenario": "Kraštutinis atvejis: labai trumpas, mažai informacijos turintis CV -> QA testuotojo pozicija",
+  "X": {
+    "cv": "Mantas Urbonas\nTelefonas: +370 600 00000\nEsu atsakingas, greitai mokausi, domiuosi IT. Baigiau Java programavimo kursus (3 mėn.). Ieškau pirmojo darbo IT srityje.",
+    "job_ad": "Jaunesnysis QA testuotojas (Šiauliai)\n\nReikalavimai:\n- Testavimo teorijos pagrindai (testavimo atvejai, klaidų registravimas)\n- Kruopštumas ir analitinis mąstymas\n- Anglų kalba B1 lygiu\n\nPrivalumas:\n- Patirtis su Jira\n- Bet kokios programavimo kalbos pagrindai\n- Selenium ar kitų automatizavimo įrankių pažinimas\n\nSiūlome: apmokymus, 1500–2000 EUR bruto."
+  },
+  "y": {
+    "match_score": 30,
+    "matched_skills": [
+      "Programavimo kalbos pagrindai (Java kursai)"
+    ],
+    "missing_skills": [
+      "Testavimo teorijos žinios",
+      "Anglų kalbos lygis (nenurodytas)",
+      "Jira",
+      "Selenium"
+    ],
+    "strengths": [
+      "Motyvacija dirbti IT srityje",
+      "Baigti Java programavimo kursai"
+    ],
+    "recommendations": [
+      "CV per trumpas – nurodykite išsilavinimą, kalbų lygius ir kursų turinį",
+      "Išklausykite nemokamą ISTQB Foundation lygio kursą ir paminėkite tai CV",
+      "Pridėkite kursų metu atliktą projektą su GitHub nuoroda",
+      "Bendrus teiginius (atsakingas, greitai mokausi) pagrįskite konkrečiais pavyzdžiais"
+    ],
+    "verdict": "Mažai tinkamas"
+  }
+}

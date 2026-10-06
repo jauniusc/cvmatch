@@ -1,0 +1,36 @@
+flowchart TB
+    User["User"]
+
+    subgraph CVMatch
+        UI["User Interface (UI)"]
+
+        IPrep(("IDataPreparation"))
+        IPrompt(("IPromptGeneration"))
+        IVal(("IResponseValidation"))
+        IViz(("IResultsVisualization"))
+
+        Prep["Data Preparation Module"]
+        PromptGen["Prompt Generator"]
+        Validator["Response Validator"]
+        Viz["Results Visualization"]
+    end
+
+    IGemini(("generateContent<br/>(REST / JSON)"))
+
+    subgraph GoogleCloud["Google Cloud"]
+        Gemini["Gemini API"]
+    end
+
+    User -->|"CV file,<br/>job posting text"| UI
+
+    UI -.->|"1. prepare(cv, jobPosting)"| IPrep
+    UI -.->|"2. generate(data)"| IPrompt
+    UI -..->|"3. send(prompt)"| IGemini
+    UI -.->|"4. validate(response)"| IVal
+    UI -.->|"5. render(result)"| IViz
+
+    IPrep --- Prep
+    IPrompt --- PromptGen
+    IGemini --- Gemini
+    IVal --- Validator
+    IViz --- Viz

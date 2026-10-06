@@ -1,0 +1,49 @@
+sequenceDiagram
+    actor User as User
+    participant UI as User Interface (UI)
+    participant Prep as Data Preparation<br/>Module
+    participant PromptGen as Prompt<br/>Generator
+    participant Gemini as Gemini API
+    participant Validator as Response<br/>Validator
+    participant Viz as Results<br/>Visualization
+
+    User->>UI: Uploads CV file
+    User->>UI: Enters job posting text
+    User->>UI: Clicks "Analyze"
+    activate UI
+
+    UI->>Prep: prepare(cvFile, jobPostingText)
+    activate Prep
+    Prep->>Prep: extract text from PDF / DOCX
+    Prep->>Prep: clean and normalize text
+    Prep->>Prep: check that both texts are non-empty
+    Prep-->>UI: PreparedData {cvText, jobPostingText}
+    deactivate Prep
+
+    UI->>PromptGen: generate(preparedData)
+    activate PromptGen
+    PromptGen->>PromptGen: fill in prompt template
+    PromptGen->>PromptGen: add JSON schema and instructions
+    PromptGen-->>UI: prompt
+    deactivate PromptGen
+
+    UI->>Gemini: POST generateContent(prompt,<br/>responseMimeType = "application/json")
+    activate Gemini
+    Gemini-->>UI: 200 OK, response text (JSON)
+    deactivate Gemini
+
+    UI->>Validator: validate(responseText)
+    activate Validator
+    Validator->>Validator: parse JSON
+    Validator->>Validator: check schema<br/>(score 0–100, required fields)
+    Validator-->>UI: AnalysisResult
+    deactivate Validator
+
+    UI->>Viz: render(result)
+    activate Viz
+    Viz->>Viz: build score indicator,<br/>skill lists, recommendations
+    Viz-->>UI: results view
+    deactivate Viz
+
+    UI-->>User: Shows match score, skills,<br/>strengths and recommendations
+    deactivate UI

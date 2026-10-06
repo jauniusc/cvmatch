@@ -1,0 +1,36 @@
+{
+  "id": "example_05",
+  "scenario": "Dalinis atitikimas: rinkodaros specialistė -> skaitmeninės rinkodaros vadovės pozicija (trūksta vadovavimo patirties)",
+  "X": {
+    "cv": "Eglė Stankevičiūtė\nSkaitmeninės rinkodaros specialistė\n\nPATIRTIS\n2020–dabar: Rinkodaros specialistė, UAB „Sveika mityba“, Vilnius. Planuoju ir vykdau Google Ads ir Meta Ads kampanijas (mėnesio biudžetas iki 8 000 EUR), kuriu turinį socialiniams tinklams, ruošiu naujienlaiškius Mailchimp. Per 2 metus padidinau e. parduotuvės konversijas 35 %.\n2018–2020: Turinio kūrėja, reklamos agentūra.\n\nIŠSILAVINIMAS\nVilniaus universitetas, Komunikacijos bakalauras.\n\nĮGŪDŽIAI\nGoogle Ads, Meta Ads, Google Analytics 4, Mailchimp, Canva, SEO pagrindai, copywriting.\n\nKALBOS\nLietuvių – gimtoji, anglų – C1.",
+    "job_ad": "Skaitmeninės rinkodaros vadovas (-ė) (Vilnius)\n\nReikalavimai:\n- 4+ metų skaitmeninės rinkodaros patirtis\n- Bent 2 metų komandos vadovavimo patirtis\n- Rinkodaros strategijos ir biudžeto planavimas\n- Google Ads, Meta Ads, GA4 ekspertinės žinios\n- Gebėjimas analizuoti kampanijų rezultatus ir ROI\n\nPrivalumas:\n- SEO strategijos patirtis\n- Marketing automation įrankiai (HubSpot, Klaviyo)\n\nSiūlome: 3500–4500 EUR bruto."
+  },
+  "y": {
+    "match_score": 62,
+    "matched_skills": [
+      "4+ metų skaitmeninės rinkodaros patirtis",
+      "Google Ads",
+      "Meta Ads",
+      "GA4",
+      "Biudžeto valdymas",
+      "Rezultatų analizė"
+    ],
+    "missing_skills": [
+      "Komandos vadovavimo patirtis",
+      "Rinkodaros strategijos kūrimas",
+      "HubSpot / Klaviyo",
+      "SEO strategija (tik pagrindai)"
+    ],
+    "strengths": [
+      "Išmatuojami rezultatai (konversijos +35 %)",
+      "Patirtis valdant reikšmingą reklamos biudžetą",
+      "Platus skaitmeninių kanalų išmanymas"
+    ],
+    "recommendations": [
+      "Jei teko koordinuoti kolegas, praktikantus ar agentūras, aprašykite tai kaip vadovavimo patirtį",
+      "Paminėkite, ar dalyvavote kuriant metinę rinkodaros strategiją",
+      "Mailchimp patirtį galima pateikti kaip marketing automation pagrindą"
+    ],
+    "verdict": "Iš dalies tinkamas"
+  }
+}

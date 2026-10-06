@@ -1,0 +1,39 @@
+@startuml CVMatch_Component
+skinparam componentStyle rectangle
+
+actor "User" as User
+
+package "CVMatch" {
+  [User Interface (UI)] as UI
+
+  interface "IDataPreparation" as IPrep
+  interface "IPromptGeneration" as IPrompt
+  interface "IResponseValidation" as IVal
+  interface "IResultsVisualization" as IViz
+
+  [Data Preparation Module] as Prep
+  [Prompt Generator] as PromptGen
+  [Response Validator] as Validator
+  [Results Visualization] as Viz
+}
+
+interface "generateContent\n(REST / JSON)" as IGemini
+
+cloud "Google Cloud" {
+  [Gemini API] as Gemini
+}
+
+User --> UI : CV file,\njob posting text
+
+UI ..> IPrep : 1. prepare(cv, jobPosting)
+UI ..> IPrompt : 2. generate(data)
+UI ..> IGemini : 3. send(prompt)
+UI ..> IVal : 4. validate(response)
+UI ..> IViz : 5. render(result)
+
+IPrep -- Prep
+IPrompt -- PromptGen
+IGemini -- Gemini
+IVal -- Validator
+IViz -- Viz
+@enduml

@@ -1,0 +1,32 @@
+{
+  "id": "example_03",
+  "scenario": "Silpnas atitikimas: buhalterė -> DevOps inžinieriaus pozicija",
+  "X": {
+    "cv": "Rasa Jankauskienė\nVyr. buhalterė\n\nPATIRTIS\n2015–dabar: Vyr. buhalterė, UAB „Statybų grupė“, Klaipėda. Finansinių ataskaitų rengimas, PVM deklaracijos, darbo užmokesčio skaičiavimas, bendravimas su VMI ir auditoriais.\n2010–2015: Buhalterė, UAB „Prekyba ir Ko“.\n\nIŠSILAVINIMAS\nKlaipėdos universitetas, Apskaitos ir finansų bakalauras.\n\nĮGŪDŽIAI\nRivilė, Excel (išplėstinis lygis, suvestinės lentelės), Finvalda, finansinė analizė.\n\nKALBOS\nLietuvių – gimtoji, anglų – B1, rusų – B2.",
+    "job_ad": "DevOps inžinierius (nuotolinis)\n\nReikalavimai:\n- 3+ metų patirtis administruojant Linux serverius\n- Kubernetes ir Docker\n- Terraform arba kitas IaC įrankis\n- CI/CD (GitHub Actions, Jenkins)\n- AWS arba Azure debesija\n- Skriptų rašymas (Bash, Python)\n\nPrivalumas:\n- Prometheus / Grafana\n- Sertifikatai (CKA, AWS)\n\nSiūlome: 4500–6000 EUR bruto."
+  },
+  "y": {
+    "match_score": 5,
+    "matched_skills": [],
+    "missing_skills": [
+      "Linux administravimas",
+      "Kubernetes",
+      "Docker",
+      "Terraform",
+      "CI/CD",
+      "AWS/Azure",
+      "Bash",
+      "Python"
+    ],
+    "strengths": [
+      "Ilgametė profesinė patirtis ir atsakomybė",
+      "Išplėstiniai Excel įgūdžiai (analitinis mąstymas)"
+    ],
+    "recommendations": [
+      "Ši pozicija neatitinka dabartinės kvalifikacijos – verta ieškoti pozicijų, susijusių su finansais ar apskaita",
+      "Jei norima pereiti į IT sritį, realesnis kelias – finansų analitiko ar ERP sistemų konsultanto pozicijos",
+      "DevOps sričiai reikėtų nuoseklių mokymų (Linux, Docker, debesija) ir praktinių projektų"
+    ],
+    "verdict": "Netinkamas"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "example_01",
+  "scenario": "Stiprus atitikimas: Python programuotojas -> Python backend pozicija",
+  "X": {
+    "cv": "Jonas Petrauskas\nBackend programuotojas\n\nPATIRTIS\n2022–dabar: Python programuotojas, UAB „Duomenų sprendimai“, Vilnius. Kuriu REST API su Django ir Django REST Framework, optimizuoju PostgreSQL užklausas, diegiu paslaugas Docker konteineriuose. Įdiegiau CI/CD procesą su GitLab CI.\n2021–2022: Jaunesnysis programuotojas, UAB „Kodo dirbtuvės“. Python skriptai duomenų apdorojimui, unit testai su pytest.\n\nIŠSILAVINIMAS\nVilniaus universitetas, Informatikos bakalauras (2021).\n\nĮGŪDŽIAI\nPython, Django, DRF, PostgreSQL, Redis, Docker, Git, GitLab CI, pytest, Linux.\n\nKALBOS\nLietuvių – gimtoji, anglų – C1.",
+    "job_ad": "Python Backend programuotojas (Vilnius / hibridinis)\n\nReikalavimai:\n- 2+ metų komercinė patirtis su Python\n- Darbo patirtis su Django arba FastAPI\n- Geros SQL žinios (PostgreSQL)\n- Docker naudojimo patirtis\n- Anglų kalba ne žemesniu nei B2 lygiu\n\nPrivalumas:\n- AWS patirtis\n- Kubernetes žinios\n- Celery ar kitų užduočių eilių patirtis\n\nSiūlome: 3500–4500 EUR bruto, hibridinį darbą."
+  },
+  "y": {
+    "match_score": 85,
+    "matched_skills": [
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "SQL",
+      "Docker",
+      "Anglų kalba"
+    ],
+    "missing_skills": [
+      "AWS",
+      "Kubernetes",
+      "Celery"
+    ],
+    "strengths": [
+      "3+ metų komercinė Python patirtis",
+      "Patirtis kuriant REST API su Django",
+      "CI/CD diegimo patirtis"
+    ],
+    "recommendations": [
+      "Jei turite bent minimalią AWS patirtį (pvz., asmeniniame projekte), įtraukite ją į CV",
+      "Paminėkite patirtį su asinchroninėmis užduotimis, jei tokia yra (Redis naudojimas gali būti susijęs)",
+      "Pridėkite išmatuojamų rezultatų, pvz., kiek pagreitėjo optimizuotos užklausos"
+    ],
+    "verdict": "Labai tinkamas"
+  }
+}
