@@ -1,9 +1,9 @@
 {
   "id": "example_01",
-  "scenario": "Stiprus atitikimas: Python programuotojas -> Python backend pozicija",
+  "scenario": "Strong match: Python developer -> Python backend position",
   "X": {
-    "cv": "Jonas Petrauskas\nBackend programuotojas\n\nPATIRTIS\n2022–dabar: Python programuotojas, UAB „Duomenų sprendimai“, Vilnius. Kuriu REST API su Django ir Django REST Framework, optimizuoju PostgreSQL užklausas, diegiu paslaugas Docker konteineriuose. Įdiegiau CI/CD procesą su GitLab CI.\n2021–2022: Jaunesnysis programuotojas, UAB „Kodo dirbtuvės“. Python skriptai duomenų apdorojimui, unit testai su pytest.\n\nIŠSILAVINIMAS\nVilniaus universitetas, Informatikos bakalauras (2021).\n\nĮGŪDŽIAI\nPython, Django, DRF, PostgreSQL, Redis, Docker, Git, GitLab CI, pytest, Linux.\n\nKALBOS\nLietuvių – gimtoji, anglų – C1.",
-    "job_ad": "Python Backend programuotojas (Vilnius / hibridinis)\n\nReikalavimai:\n- 2+ metų komercinė patirtis su Python\n- Darbo patirtis su Django arba FastAPI\n- Geros SQL žinios (PostgreSQL)\n- Docker naudojimo patirtis\n- Anglų kalba ne žemesniu nei B2 lygiu\n\nPrivalumas:\n- AWS patirtis\n- Kubernetes žinios\n- Celery ar kitų užduočių eilių patirtis\n\nSiūlome: 3500–4500 EUR bruto, hibridinį darbą."
+    "cv": "Jonas Petrauskas\nBackend Developer\n\nEXPERIENCE\n2022–present: Python Developer, UAB \"Duomenų sprendimai\", Vilnius. Building REST APIs with Django and Django REST Framework, optimizing PostgreSQL queries, deploying services in Docker containers. Implemented a CI/CD process with GitLab CI.\n2021–2022: Junior Developer, UAB \"Kodo dirbtuvės\". Python scripts for data processing, unit tests with pytest.\n\nEDUCATION\nVilnius University, BSc in Informatics (2021).\n\nSKILLS\nPython, Django, DRF, PostgreSQL, Redis, Docker, Git, GitLab CI, pytest, Linux.\n\nLANGUAGES\nLithuanian – native, English – C1.",
+    "job_ad": "Python Backend Developer (Vilnius / hybrid)\n\nRequirements:\n- 2+ years of commercial experience with Python\n- Experience with Django or FastAPI\n- Good SQL knowledge (PostgreSQL)\n- Experience using Docker\n- English at B2 level or higher\n\nNice to have:\n- AWS experience\n- Kubernetes knowledge\n- Experience with Celery or other task queues\n\nWe offer: 3500–4500 EUR gross, hybrid work."
   },
   "y": {
     "match_score": 85,
@@ -13,7 +13,7 @@
       "PostgreSQL",
       "SQL",
       "Docker",
-      "Anglų kalba"
+      "English"
     ],
     "missing_skills": [
       "AWS",
@@ -21,15 +21,15 @@
       "Celery"
     ],
     "strengths": [
-      "3+ metų komercinė Python patirtis",
-      "Patirtis kuriant REST API su Django",
-      "CI/CD diegimo patirtis"
+      "3+ years of commercial Python experience",
+      "Experience building REST APIs with Django",
+      "Experience implementing CI/CD"
     ],
     "recommendations": [
-      "Jei turite bent minimalią AWS patirtį (pvz., asmeniniame projekte), įtraukite ją į CV",
-      "Paminėkite patirtį su asinchroninėmis užduotimis, jei tokia yra (Redis naudojimas gali būti susijęs)",
-      "Pridėkite išmatuojamų rezultatų, pvz., kiek pagreitėjo optimizuotos užklausos"
+      "If you have even minimal AWS experience (e.g. in a personal project), include it in the CV",
+      "Mention experience with asynchronous tasks, if any (Redis usage may be related)",
+      "Add measurable results, e.g. how much faster the optimized queries became"
     ],
-    "verdict": "Labai tinkamas"
+    "verdict": "Strong match"
   }
 }

@@ -1,36 +1,36 @@
 {
   "id": "example_05",
-  "scenario": "Dalinis atitikimas: rinkodaros specialistė -> skaitmeninės rinkodaros vadovės pozicija (trūksta vadovavimo patirties)",
+  "scenario": "Partial match: marketing specialist -> digital marketing manager position (lacks management experience)",
   "X": {
-    "cv": "Eglė Stankevičiūtė\nSkaitmeninės rinkodaros specialistė\n\nPATIRTIS\n2020–dabar: Rinkodaros specialistė, UAB „Sveika mityba“, Vilnius. Planuoju ir vykdau Google Ads ir Meta Ads kampanijas (mėnesio biudžetas iki 8 000 EUR), kuriu turinį socialiniams tinklams, ruošiu naujienlaiškius Mailchimp. Per 2 metus padidinau e. parduotuvės konversijas 35 %.\n2018–2020: Turinio kūrėja, reklamos agentūra.\n\nIŠSILAVINIMAS\nVilniaus universitetas, Komunikacijos bakalauras.\n\nĮGŪDŽIAI\nGoogle Ads, Meta Ads, Google Analytics 4, Mailchimp, Canva, SEO pagrindai, copywriting.\n\nKALBOS\nLietuvių – gimtoji, anglų – C1.",
-    "job_ad": "Skaitmeninės rinkodaros vadovas (-ė) (Vilnius)\n\nReikalavimai:\n- 4+ metų skaitmeninės rinkodaros patirtis\n- Bent 2 metų komandos vadovavimo patirtis\n- Rinkodaros strategijos ir biudžeto planavimas\n- Google Ads, Meta Ads, GA4 ekspertinės žinios\n- Gebėjimas analizuoti kampanijų rezultatus ir ROI\n\nPrivalumas:\n- SEO strategijos patirtis\n- Marketing automation įrankiai (HubSpot, Klaviyo)\n\nSiūlome: 3500–4500 EUR bruto."
+    "cv": "Eglė Stankevičiūtė\nDigital Marketing Specialist\n\nEXPERIENCE\n2020–present: Marketing Specialist, UAB \"Sveika mityba\", Vilnius. Planning and running Google Ads and Meta Ads campaigns (monthly budget up to 8,000 EUR), creating social media content, preparing newsletters in Mailchimp. Increased online store conversions by 35% over 2 years.\n2018–2020: Content Creator, advertising agency.\n\nEDUCATION\nVilnius University, BA in Communication.\n\nSKILLS\nGoogle Ads, Meta Ads, Google Analytics 4, Mailchimp, Canva, SEO basics, copywriting.\n\nLANGUAGES\nLithuanian – native, English – C1.",
+    "job_ad": "Digital Marketing Manager (Vilnius)\n\nRequirements:\n- 4+ years of digital marketing experience\n- At least 2 years of team management experience\n- Marketing strategy and budget planning\n- Expert knowledge of Google Ads, Meta Ads, GA4\n- Ability to analyze campaign results and ROI\n\nNice to have:\n- SEO strategy experience\n- Marketing automation tools (HubSpot, Klaviyo)\n\nWe offer: 3500–4500 EUR gross."
   },
   "y": {
     "match_score": 62,
     "matched_skills": [
-      "4+ metų skaitmeninės rinkodaros patirtis",
+      "4+ years of digital marketing experience",
       "Google Ads",
       "Meta Ads",
       "GA4",
-      "Biudžeto valdymas",
-      "Rezultatų analizė"
+      "Budget management",
+      "Results analysis"
     ],
     "missing_skills": [
-      "Komandos vadovavimo patirtis",
-      "Rinkodaros strategijos kūrimas",
+      "Team management experience",
+      "Marketing strategy development",
       "HubSpot / Klaviyo",
-      "SEO strategija (tik pagrindai)"
+      "SEO strategy (basics only)"
     ],
     "strengths": [
-      "Išmatuojami rezultatai (konversijos +35 %)",
-      "Patirtis valdant reikšmingą reklamos biudžetą",
-      "Platus skaitmeninių kanalų išmanymas"
+      "Measurable results (conversions +35%)",
+      "Experience managing a significant advertising budget",
+      "Broad knowledge of digital channels"
     ],
     "recommendations": [
-      "Jei teko koordinuoti kolegas, praktikantus ar agentūras, aprašykite tai kaip vadovavimo patirtį",
-      "Paminėkite, ar dalyvavote kuriant metinę rinkodaros strategiją",
-      "Mailchimp patirtį galima pateikti kaip marketing automation pagrindą"
+      "If you have coordinated colleagues, interns or agencies, describe it as management experience",
+      "Mention whether you took part in creating the annual marketing strategy",
+      "Mailchimp experience can be presented as a foundation in marketing automation"
     ],
-    "verdict": "Iš dalies tinkamas"
+    "verdict": "Partial match"
   }
 }

@@ -1,31 +1,31 @@
 {
   "id": "example_06",
-  "scenario": "Kraštutinis atvejis: labai trumpas, mažai informacijos turintis CV -> QA testuotojo pozicija",
+  "scenario": "Edge case: very short CV with little information -> QA tester position",
   "X": {
-    "cv": "Mantas Urbonas\nTelefonas: +370 600 00000\nEsu atsakingas, greitai mokausi, domiuosi IT. Baigiau Java programavimo kursus (3 mėn.). Ieškau pirmojo darbo IT srityje.",
-    "job_ad": "Jaunesnysis QA testuotojas (Šiauliai)\n\nReikalavimai:\n- Testavimo teorijos pagrindai (testavimo atvejai, klaidų registravimas)\n- Kruopštumas ir analitinis mąstymas\n- Anglų kalba B1 lygiu\n\nPrivalumas:\n- Patirtis su Jira\n- Bet kokios programavimo kalbos pagrindai\n- Selenium ar kitų automatizavimo įrankių pažinimas\n\nSiūlome: apmokymus, 1500–2000 EUR bruto."
+    "cv": "Mantas Urbonas\nPhone: +370 600 00000\nI am responsible, a fast learner and interested in IT. Completed a Java programming course (3 months). Looking for my first job in IT.",
+    "job_ad": "Junior QA Tester (Šiauliai)\n\nRequirements:\n- Basics of testing theory (test cases, bug reporting)\n- Attention to detail and analytical thinking\n- English at B1 level\n\nNice to have:\n- Experience with Jira\n- Basics of any programming language\n- Familiarity with Selenium or other automation tools\n\nWe offer: training, 1500–2000 EUR gross."
   },
   "y": {
     "match_score": 30,
     "matched_skills": [
-      "Programavimo kalbos pagrindai (Java kursai)"
+      "Programming language basics (Java course)"
     ],
     "missing_skills": [
-      "Testavimo teorijos žinios",
-      "Anglų kalbos lygis (nenurodytas)",
+      "Testing theory knowledge",
+      "English level (not specified)",
       "Jira",
       "Selenium"
     ],
     "strengths": [
-      "Motyvacija dirbti IT srityje",
-      "Baigti Java programavimo kursai"
+      "Motivation to work in IT",
+      "Completed Java programming course"
     ],
     "recommendations": [
-      "CV per trumpas – nurodykite išsilavinimą, kalbų lygius ir kursų turinį",
-      "Išklausykite nemokamą ISTQB Foundation lygio kursą ir paminėkite tai CV",
-      "Pridėkite kursų metu atliktą projektą su GitHub nuoroda",
-      "Bendrus teiginius (atsakingas, greitai mokausi) pagrįskite konkrečiais pavyzdžiais"
+      "The CV is too short – include education, language levels and course content",
+      "Take a free ISTQB Foundation Level course and mention it in the CV",
+      "Add a project completed during the course with a GitHub link",
+      "Back up general statements (responsible, fast learner) with concrete examples"
     ],
-    "verdict": "Mažai tinkamas"
+    "verdict": "Weak match"
   }
 }

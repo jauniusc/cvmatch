@@ -1,15 +1,15 @@
 {
   "id": "example_03",
-  "scenario": "Silpnas atitikimas: buhalterė -> DevOps inžinieriaus pozicija",
+  "scenario": "Weak match: accountant -> DevOps engineer position",
   "X": {
-    "cv": "Rasa Jankauskienė\nVyr. buhalterė\n\nPATIRTIS\n2015–dabar: Vyr. buhalterė, UAB „Statybų grupė“, Klaipėda. Finansinių ataskaitų rengimas, PVM deklaracijos, darbo užmokesčio skaičiavimas, bendravimas su VMI ir auditoriais.\n2010–2015: Buhalterė, UAB „Prekyba ir Ko“.\n\nIŠSILAVINIMAS\nKlaipėdos universitetas, Apskaitos ir finansų bakalauras.\n\nĮGŪDŽIAI\nRivilė, Excel (išplėstinis lygis, suvestinės lentelės), Finvalda, finansinė analizė.\n\nKALBOS\nLietuvių – gimtoji, anglų – B1, rusų – B2.",
-    "job_ad": "DevOps inžinierius (nuotolinis)\n\nReikalavimai:\n- 3+ metų patirtis administruojant Linux serverius\n- Kubernetes ir Docker\n- Terraform arba kitas IaC įrankis\n- CI/CD (GitHub Actions, Jenkins)\n- AWS arba Azure debesija\n- Skriptų rašymas (Bash, Python)\n\nPrivalumas:\n- Prometheus / Grafana\n- Sertifikatai (CKA, AWS)\n\nSiūlome: 4500–6000 EUR bruto."
+    "cv": "Rasa Jankauskienė\nChief Accountant\n\nEXPERIENCE\n2015–present: Chief Accountant, UAB \"Statybų grupė\", Klaipėda. Preparing financial statements, VAT returns, payroll calculation, communicating with the State Tax Inspectorate and auditors.\n2010–2015: Accountant, UAB \"Prekyba ir Ko\".\n\nEDUCATION\nKlaipėda University, BSc in Accounting and Finance.\n\nSKILLS\nRivilė, Excel (advanced, pivot tables), Finvalda, financial analysis.\n\nLANGUAGES\nLithuanian – native, English – B1, Russian – B2.",
+    "job_ad": "DevOps Engineer (remote)\n\nRequirements:\n- 3+ years of experience administering Linux servers\n- Kubernetes and Docker\n- Terraform or another IaC tool\n- CI/CD (GitHub Actions, Jenkins)\n- AWS or Azure cloud\n- Scripting (Bash, Python)\n\nNice to have:\n- Prometheus / Grafana\n- Certifications (CKA, AWS)\n\nWe offer: 4500–6000 EUR gross."
   },
   "y": {
     "match_score": 5,
     "matched_skills": [],
     "missing_skills": [
-      "Linux administravimas",
+      "Linux administration",
       "Kubernetes",
       "Docker",
       "Terraform",
@@ -19,14 +19,14 @@
       "Python"
     ],
     "strengths": [
-      "Ilgametė profesinė patirtis ir atsakomybė",
-      "Išplėstiniai Excel įgūdžiai (analitinis mąstymas)"
+      "Long professional experience and responsibility",
+      "Advanced Excel skills (analytical thinking)"
     ],
     "recommendations": [
-      "Ši pozicija neatitinka dabartinės kvalifikacijos – verta ieškoti pozicijų, susijusių su finansais ar apskaita",
-      "Jei norima pereiti į IT sritį, realesnis kelias – finansų analitiko ar ERP sistemų konsultanto pozicijos",
-      "DevOps sričiai reikėtų nuoseklių mokymų (Linux, Docker, debesija) ir praktinių projektų"
+      "This position does not match current qualifications – consider positions related to finance or accounting",
+      "If you want to move into IT, a more realistic path is a financial analyst or ERP systems consultant position",
+      "The DevOps field would require consistent training (Linux, Docker, cloud) and hands-on projects"
     ],
-    "verdict": "Netinkamas"
+    "verdict": "Not a match"
   }
 }

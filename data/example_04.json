@@ -1,9 +1,9 @@
 {
   "id": "example_04",
-  "scenario": "Skirtingos kalbos: CV anglų kalba -> duomenų analitiko skelbimas lietuvių kalba",
+  "scenario": "Strong match: data analyst with e-commerce experience -> data analyst position",
   "X": {
-    "cv": "Tomas Vaitkus\nData Analyst\n\nEXPERIENCE\n2021–present: Data Analyst, E-commerce company „ShopNord“, Vilnius. Building Power BI dashboards for sales and marketing teams, writing complex SQL queries (window functions, CTEs), A/B test analysis in Python (pandas, scipy).\n2019–2021: Junior Analyst, Market research agency. Survey data cleaning and reporting in Excel.\n\nEDUCATION\nISM University of Management and Economics, BSc in Economics.\n\nSKILLS\nSQL, Python (pandas, matplotlib, scipy), Power BI, Excel, Google Analytics, statistics.\n\nLANGUAGES\nLithuanian – native, English – C1.",
-    "job_ad": "Duomenų analitikas (Vilnius)\n\nReikalavimai:\n- 2+ metų patirtis duomenų analizėje\n- Puikios SQL žinios\n- Patirtis su BI įrankiais (Power BI arba Tableau)\n- Python arba R žinios duomenų analizei\n- Gebėjimas rezultatus pristatyti verslo komandoms\n\nPrivalumas:\n- dbt arba duomenų sandėlių (Snowflake, BigQuery) patirtis\n- E. prekybos srities patirtis\n\nSiūlome: 2800–3800 EUR bruto."
+    "cv": "Tomas Vaitkus\nData Analyst\n\nEXPERIENCE\n2021–present: Data Analyst, e-commerce company \"ShopNord\", Vilnius. Building Power BI dashboards for sales and marketing teams, writing complex SQL queries (window functions, CTEs), A/B test analysis in Python (pandas, scipy).\n2019–2021: Junior Analyst, market research agency. Survey data cleaning and reporting in Excel.\n\nEDUCATION\nISM University of Management and Economics, BSc in Economics.\n\nSKILLS\nSQL, Python (pandas, matplotlib, scipy), Power BI, Excel, Google Analytics, statistics.\n\nLANGUAGES\nLithuanian – native, English – C1.",
+    "job_ad": "Data Analyst (Vilnius)\n\nRequirements:\n- 2+ years of experience in data analysis\n- Excellent SQL knowledge\n- Experience with BI tools (Power BI or Tableau)\n- Knowledge of Python or R for data analysis\n- Ability to present results to business teams\n\nNice to have:\n- Experience with dbt or data warehouses (Snowflake, BigQuery)\n- E-commerce experience\n\nWe offer: 2800–3800 EUR gross."
   },
   "y": {
     "match_score": 82,
@@ -11,24 +11,24 @@
       "SQL",
       "Power BI",
       "Python",
-      "5 metų patirtis duomenų analizėje",
-      "E. prekybos patirtis",
-      "Rezultatų pristatymas verslo komandoms"
+      "5 years of experience in data analysis",
+      "E-commerce experience",
+      "Presenting results to business teams"
     ],
     "missing_skills": [
       "dbt",
       "Snowflake / BigQuery"
     ],
     "strengths": [
-      "Gilios SQL žinios (window functions, CTE)",
-      "A/B testų analizės patirtis",
-      "Patirtis e. prekybos įmonėje – atitinka privalumą"
+      "Deep SQL knowledge (window functions, CTEs)",
+      "A/B test analysis experience",
+      "Experience at an e-commerce company – matches a nice-to-have"
     ],
     "recommendations": [
-      "Kadangi skelbimas lietuvių kalba, verta turėti ir lietuvišką CV versiją",
-      "Jei teko dirbti su duomenų sandėliu, nurodykite kokiu",
-      "Pridėkite konkretų verslo rezultatą, pvz., kokį sprendimą lėmė A/B testo analizė"
+      "If you have worked with a data warehouse, specify which one",
+      "Add a concrete business outcome, e.g. what decision an A/B test analysis led to",
+      "Describe how you presented results to business teams (e.g. regular reports, presentations to management)"
     ],
-    "verdict": "Labai tinkamas"
+    "verdict": "Strong match"
   }
 }
