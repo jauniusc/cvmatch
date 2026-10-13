@@ -1,205 +1,223 @@
-# cvmatch
+# CVMatch AI — CV and job ad matching with Gemini
 
-## Component diagram
+**CVMatch AI** is an information system that uses generative AI (Google Gemini API) to evaluate how well a
+candidate's CV matches a job advertisement. It returns structured JSON: a match score, a verdict,
+matched and missing skills, and concrete recommendations for improving the CV.
 
-```mermaid
-flowchart TB
-    User["User"]
+| Input `X` | Output `y` |
+| --- | --- |
+| `cv` — CV text<br>`job_ad` — job advertisement text | `match_score` (0–100), `verdict`, `matched_skills`, `missing_skills`, `recommendations` |
 
-    subgraph CVMatch
-        UI["User Interface (UI)"]
+## Repository structure
 
-        IPrep(("IDataPreparation"))
-        IPrompt(("IPromptGeneration"))
-        IVal(("IResponseValidation"))
-        IViz(("IResultsVisualization"))
-
-        Prep["Data Preparation Module"]
-        PromptGen["Prompt Generator"]
-        Validator["Response Validator"]
-        Viz["Results Visualization"]
-    end
-
-    IGemini(("generateContent<br/>(REST / JSON)"))
-
-    subgraph GoogleCloud["Google Cloud"]
-        Gemini["Gemini API"]
-    end
-
-    User -->|"CV file,<br/>job posting text"| UI
-
-    UI -.->|"1. prepare(cv, jobPosting)"| IPrep
-    UI -.->|"2. generate(data)"| IPrompt
-    UI -..->|"3. send(prompt)"| IGemini
-    UI -.->|"4. validate(response)"| IVal
-    UI -.->|"5. render(result)"| IViz
-
-    IPrep --- Prep
-    IPrompt --- PromptGen
-    IGemini --- Gemini
-    IVal --- Validator
-    IViz --- Viz
+```
+cvmatch/
+├── data/examples.json            # (X, y) pairs — 4 end-to-end examples
+├── prompts/
+│   └── prompt.json               # test prompt: system prompt + user template (used by Colab and for GPT testing)
+├── diagrams/                     # PlantUML (.puml) and Mermaid (.mmd) sources + PNG
+└── notebooks/cvmatch_ai_gemini.ipynb   # Google Colab prototype with the Gemini API
 ```
 
-![Component diagram (PlantUML)](diagrams/plantuml/2-component.png)
+## Data
 
-<details>
-<summary>PlantUML source</summary>
+| File | Description |
+| --- | --- |
+| [`data/examples.json`](data/examples.json) | 4 `(X, y)` pairs: `{ "id", "scenario", "X": { "cv", "job_ad" }, "y": { ... } }` |
+
+The examples cover different cases:
+
+| Example | Scenario | `y.match_score` | `y.verdict` |
+| --- | --- | --- | --- |
+| `example_01` | Python developer → Python backend role | 85 | Strong match |
+| `example_02` | Junior Java developer → full-stack role | 52 | Partial match |
+| `example_03` | Accountant → DevOps engineer role | 5 | No match |
+| `example_04` | Very short CV → junior QA tester role | 30 | Weak match |
+
+All people and companies in the examples are fictional.
+
+## Prompts
+
+- [`prompts/prompt.json`](prompts/prompt.json) — the test prompt. `system_prompt` sets the recruiter role and scoring
+  rules, `user_prompt_template` holds the CV and job ad (`{{cv}}`, `{{job_ad}}`) and the JSON structure to return.
+  Give it to a GPT agent with `X` from any example and it answers in the `y` format; the Colab notebook sends the
+  same prompt to the Gemini API.
+
+## UMLs
+
+### PlantUML Component diagram
 
 ```plantuml
-@startuml CVMatch_Component
-skinparam componentStyle rectangle
+@startuml
+actor "Job Seeker / Recruiter" as User
 
-actor "User" as User
+rectangle "CVMatch AI" {
 
-package "CVMatch" {
-  [User Interface (UI)] as UI
+    component "REST API\nPOST /match" as API
 
-  interface "IDataPreparation" as IPrep
-  interface "IPromptGeneration" as IPrompt
-  interface "IResponseValidation" as IVal
-  interface "IResultsVisualization" as IViz
+    component "Input Processor" as Input
 
-  [Data Preparation Module] as Prep
-  [Prompt Generator] as PromptGen
-  [Response Validator] as Validator
-  [Results Visualization] as Viz
+    component "Prompt Builder" as Prompt
+
+    component "Gemini API" as Gemini
+
+    component "Result Validator" as Validator
 }
 
-interface "generateContent\n(REST / JSON)" as IGemini
+file "Prompt Template\n(prompt.json)" as Template
 
-cloud "Google Cloud" {
-  [Gemini API] as Gemini
-}
+cloud "GitHub Repository" as GitHub
 
-User --> UI : CV file,\njob posting text
 
-UI ..> IPrep : 1. prepare(cv, jobPosting)
-UI ..> IPrompt : 2. generate(data)
-UI ..> IGemini : 3. send(prompt)
-UI ..> IVal : 4. validate(response)
-UI ..> IViz : 5. render(result)
+User --> API : CV text +\njob ad text
 
-IPrep -- Prep
-IPrompt -- PromptGen
-IGemini -- Gemini
-IVal -- Validator
-IViz -- Viz
+API --> Input : Validate & clean\ninput
+
+Input --> Prompt : Clean CV +\njob ad
+
+Template --> Prompt : System prompt +\nuser template
+
+Prompt --> Gemini : Filled prompt +\nJSON schema
+
+Gemini --> Validator : Score + skills +\nrecommendations + verdict
+
+Validator --> API : Validated result
+
+API --> User : JSON response
+
+GitHub --> Template : Prompt file
 @enduml
 ```
 
-</details>
+![PlantUML component diagram](diagrams/component.png)
 
-## Sequence diagram
+### Mermaid Component diagram
+
+```mermaid
+flowchart LR
+
+    User["Job Seeker / Recruiter"]
+
+    subgraph CVMatch["CVMatch AI"]
+        API["REST API<br/>POST /match"]
+        Input["Input Processor"]
+        Prompt["Prompt Builder"]
+        Gemini["Gemini API"]
+        Validator["Result Validator"]
+    end
+
+    Template[/"Prompt Template<br/>(prompt.json)"/]
+    GitHub["GitHub Repository"]
+
+    User -->|"CV text +<br/>job ad text"| API
+
+    API -->|"Validate & clean<br/>input"| Input
+
+    Input -->|"Clean CV +<br/>job ad"| Prompt
+
+    Template -->|"System prompt +<br/>user template"| Prompt
+
+    Prompt -->|"Filled prompt +<br/>JSON schema"| Gemini
+
+    Gemini -->|"Score + skills +<br/>recommendations + verdict"| Validator
+
+    Validator -->|"Validated result"| API
+
+    API -->|"JSON response"| User
+
+    GitHub -->|"Prompt file"| Template
+```
+
+### PlantUML Sequence diagram
+
+```plantuml
+@startuml
+actor "Job Seeker / Recruiter" as User
+
+participant "REST API\n/match" as API
+participant "Input Processor" as Input
+participant "Prompt Builder" as Prompt
+participant "Gemini API" as Gemini
+participant "Result Validator" as Validator
+
+User -> API : POST /match\n{cv, job_ad}
+API -> Input : Validate & clean texts
+Input --> API : Clean CV + job ad + warnings
+
+API -> Prompt : CV + job ad
+Prompt -> Prompt : Fill prompt.json template
+Prompt --> API : System prompt + user prompt
+
+API -> Gemini : generate_content(prompt, response_schema)
+alt Gemini answered
+    Gemini --> Validator : JSON answer
+else No API key / API error
+    API -> Validator : Keyword-overlap fallback result
+end
+
+Validator -> Validator : Check fields, clamp score,\nmatch verdict to score
+Validator --> API : Validated result
+
+API --> User : JSON response\n{match_score, verdict, matched_skills,\nmissing_skills, recommendations}
+@enduml
+```
+
+![PlantUML sequence diagram](diagrams/sequence.png)
+
+### Mermaid Sequence diagram
 
 ```mermaid
 sequenceDiagram
-    actor User as User
-    participant UI as User Interface (UI)
-    participant Prep as Data Preparation<br/>Module
-    participant PromptGen as Prompt<br/>Generator
+    actor User as Job Seeker / Recruiter
+    participant API as REST API /match
+    participant Input as Input Processor
+    participant Prompt as Prompt Builder
     participant Gemini as Gemini API
-    participant Validator as Response<br/>Validator
-    participant Viz as Results<br/>Visualization
+    participant Validator as Result Validator
 
-    User->>UI: Uploads CV file
-    User->>UI: Enters job posting text
-    User->>UI: Clicks "Analyze"
-    activate UI
+    User->>API: POST /match<br/>{cv, job_ad}
+    API->>Input: Validate & clean texts
+    Input-->>API: Clean CV + job ad + warnings
 
-    UI->>Prep: prepare(cvFile, jobPostingText)
-    activate Prep
-    Prep->>Prep: extract text from PDF / DOCX
-    Prep->>Prep: clean and normalize text
-    Prep->>Prep: check that both texts are non-empty
-    Prep-->>UI: PreparedData {cvText, jobPostingText}
-    deactivate Prep
+    API->>Prompt: CV + job ad
+    Prompt->>Prompt: Fill prompt.json template
+    Prompt-->>API: System prompt + user prompt
 
-    UI->>PromptGen: generate(preparedData)
-    activate PromptGen
-    PromptGen->>PromptGen: fill in prompt template
-    PromptGen->>PromptGen: add JSON schema and instructions
-    PromptGen-->>UI: prompt
-    deactivate PromptGen
+    API->>Gemini: generate_content(prompt, response_schema)
+    alt Gemini answered
+        Gemini-->>Validator: JSON answer
+    else No API key / API error
+        API->>Validator: Keyword-overlap fallback result
+    end
 
-    UI->>Gemini: POST generateContent(prompt,<br/>responseMimeType = "application/json")
-    activate Gemini
-    Gemini-->>UI: 200 OK, response text (JSON)
-    deactivate Gemini
+    Validator->>Validator: Check fields, clamp score,<br/>match verdict to score
+    Validator-->>API: Validated result
 
-    UI->>Validator: validate(responseText)
-    activate Validator
-    Validator->>Validator: parse JSON
-    Validator->>Validator: check schema<br/>(score 0–100, required fields)
-    Validator-->>UI: AnalysisResult
-    deactivate Validator
-
-    UI->>Viz: render(result)
-    activate Viz
-    Viz->>Viz: build score indicator,<br/>skill lists, recommendations
-    Viz-->>UI: results view
-    deactivate Viz
-
-    UI-->>User: Shows match score, skills,<br/>strengths and recommendations
-    deactivate UI
+    API-->>User: JSON response<br/>{match_score, verdict, matched_skills,<br/>missing_skills, recommendations}
 ```
 
-![Sequence diagram (PlantUML)](diagrams/plantuml/3-sequence.png)
+## Google Colab demo
 
-<details>
-<summary>PlantUML source</summary>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jauniusc/cvmatch/blob/main/notebooks/cvmatch_ai_gemini.ipynb)
 
-```plantuml
-@startuml CVMatch_Sequence
-actor "User" as User
-participant "User Interface (UI)" as UI
-participant "Data Preparation\nModule" as Prep
-participant "Prompt\nGenerator" as PromptGen
-participant "Gemini API" as Gemini
-participant "Response\nValidator" as Validator
-participant "Results\nVisualization" as Viz
+The working prototype is [`notebooks/cvmatch_ai_gemini.ipynb`](notebooks/cvmatch_ai_gemini.ipynb). It walks through the
+same steps as the sequence diagram: it loads `prompt.json` and `examples.json` from this repository, cleans the CV and
+the job ad, fills in the prompt, asks Gemini for a JSON answer and checks that answer. The function
+`post_match(cv, job_ad)` joins these steps together, just like the `POST /match` endpoint would.
 
-User -> UI : Uploads CV file
-User -> UI : Enters job posting text
-User -> UI : Clicks "Analyze"
-activate UI
+In the last part every example is sent through the pipeline and the answer is compared with the expected `y`:
 
-UI -> Prep : prepare(cvFile, jobPostingText)
-activate Prep
-Prep -> Prep : extract text from PDF / DOCX
-Prep -> Prep : clean and normalize text
-Prep -> Prep : check that both texts are non-empty
-Prep --> UI : PreparedData {cvText, jobPostingText}
-deactivate Prep
+- the score difference for each example and the average error;
+- whether the verdict is the same;
+- a bar chart and a short report for each CV.
 
-UI -> PromptGen : generate(preparedData)
-activate PromptGen
-PromptGen -> PromptGen : fill in prompt template
-PromptGen -> PromptGen : add JSON schema and instructions
-PromptGen --> UI : prompt
-deactivate PromptGen
+There is also a cell where you can paste your own CV and job ad.
 
-UI -> Gemini : POST generateContent(prompt,\nresponseMimeType = "application/json")
-activate Gemini
-Gemini --> UI : 200 OK, response text (JSON)
-deactivate Gemini
+**Running it**
 
-UI -> Validator : validate(responseText)
-activate Validator
-Validator -> Validator : parse JSON
-Validator -> Validator : check schema\n(score 0–100, required fields)
-Validator --> UI : AnalysisResult
-deactivate Validator
+1. Create an API key in [Google AI Studio](https://aistudio.google.com/apikey).
+2. In Colab open 🔑 Secrets, add `GEMINI_API_KEY` and allow notebook access.
+3. Choose Runtime → Run all.
 
-UI -> Viz : render(result)
-activate Viz
-Viz -> Viz : build score indicator,\nskill lists, recommendations
-Viz --> UI : results view
-deactivate Viz
-
-UI --> User : Shows match score, skills,\nstrengths and recommendations
-deactivate UI
-@enduml
-```
-
-</details>
+If no key is set, Gemini is not called and a basic keyword comparison fills in the answer instead, so every cell still
+runs, but the results are much less accurate.

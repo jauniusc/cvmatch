@@ -1,0 +1,39 @@
+@startuml
+actor "Job Seeker / Recruiter" as User
+
+rectangle "CVMatch AI" {
+
+    component "REST API\nPOST /match" as API
+
+    component "Input Processor" as Input
+
+    component "Prompt Builder" as Prompt
+
+    component "Gemini API" as Gemini
+
+    component "Result Validator" as Validator
+}
+
+file "Prompt Template\n(prompt.json)" as Template
+
+cloud "GitHub Repository" as GitHub
+
+
+User --> API : CV text +\njob ad text
+
+API --> Input : Validate & clean\ninput
+
+Input --> Prompt : Clean CV +\njob ad
+
+Template --> Prompt : System prompt +\nuser template
+
+Prompt --> Gemini : Filled prompt +\nJSON schema
+
+Gemini --> Validator : Score + skills +\nrecommendations + verdict
+
+Validator --> API : Validated result
+
+API --> User : JSON response
+
+GitHub --> Template : Prompt file
+@enduml

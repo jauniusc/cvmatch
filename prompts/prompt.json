@@ -1,17 +1,20 @@
 {
-  "name": "cv_job_match_analysis",
-  "version": "1.0",
-  "system_prompt": "You are a recruitment specialist. Evaluate only based on the provided CV and job ad. Do not invent skills, experience or facts that are not in the CV. If the CV and the job ad are written in different languages, evaluate the content, not the language. Respond in English.",
-  "user_prompt_template": "Candidate CV:\n{{cv}}\n\nJob ad:\n{{job_ad}}\n\nBased only on the provided data:\n1. Identify which job ad requirements the candidate meets and which are missing.\n2. Calculate a match score from 0 to 100 (mandatory requirements – 70%, nice-to-haves – 30%).\n3. List 2–3 strengths of the candidate for this position.\n4. Provide 2–4 specific recommendations on how to improve the CV.\n5. Choose a verdict: 80–100 – \"Strong match\", 50–79 – \"Partial match\", 20–49 – \"Weak match\", 0–19 – \"Not a match\".\n6. If the CV lacks information, lower the score and mention it in the recommendations.\n\nReturn only valid JSON with the following structure:\n{\n  \"match_score\": 0,\n  \"matched_skills\": [],\n  \"missing_skills\": [],\n  \"strengths\": [],\n  \"recommendations\": [],\n  \"verdict\": \"string\"\n}",
+  "name": "cvmatch_ai",
+  "version": "2.0",
+  "system_prompt": "You are an experienced recruiter. Evaluate how well a candidate's CV matches a job advertisement.\n\nRules:\n1. Required qualifications are worth 70% of the score, nice-to-have qualifications 30%.\n2. Count a skill as matched only if it is stated in the CV or clearly follows from the described experience.\n3. Never invent skills, experience or facts that are not in the CV.\n4. If the CV is very short or missing information, lower the score and say so in the recommendations.\n5. The verdict depends on the score: 80-100 \"Strong match\", 50-79 \"Partial match\", 20-49 \"Weak match\", 0-19 \"No match\".\n6. Write all text fields in English.",
+  "user_prompt_template": "Candidate CV:\n\"\"\"\n{{cv}}\n\"\"\"\n\nJob advertisement:\n\"\"\"\n{{job_ad}}\n\"\"\"\n\nEvaluate the match and return only valid JSON using this structure:\n{\n  \"match_score\": 0,\n  \"verdict\": \"Strong match | Partial match | Weak match | No match\",\n  \"matched_skills\": [\"requirements the candidate meets\"],\n  \"missing_skills\": [\"requirements and nice-to-haves the candidate lacks\"],\n  \"recommendations\": [\"2-4 concrete tips to improve the CV for this job\"]\n}",
+  "generation_config": {
+    "temperature": 0.2,
+    "response_mime_type": "application/json"
+  },
   "output_format": {
     "type": "json",
-    "required_fields": [
-      "match_score",
-      "matched_skills",
-      "missing_skills",
-      "strengths",
-      "recommendations",
-      "verdict"
-    ]
+    "required_fields": ["match_score", "verdict", "matched_skills", "missing_skills", "recommendations"],
+    "verdicts": {
+      "Strong match": [80, 100],
+      "Partial match": [50, 79],
+      "Weak match": [20, 49],
+      "No match": [0, 19]
+    }
   }
 }

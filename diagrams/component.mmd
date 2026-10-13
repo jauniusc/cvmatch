@@ -1,0 +1,32 @@
+flowchart LR
+
+    User["Job Seeker / Recruiter"]
+
+    subgraph CVMatch["CVMatch AI"]
+        API["REST API<br/>POST /match"]
+        Input["Input Processor"]
+        Prompt["Prompt Builder"]
+        Gemini["Gemini API"]
+        Validator["Result Validator"]
+    end
+
+    Template[/"Prompt Template<br/>(prompt.json)"/]
+    GitHub["GitHub Repository"]
+
+    User -->|"CV text +<br/>job ad text"| API
+
+    API -->|"Validate & clean<br/>input"| Input
+
+    Input -->|"Clean CV +<br/>job ad"| Prompt
+
+    Template -->|"System prompt +<br/>user template"| Prompt
+
+    Prompt -->|"Filled prompt +<br/>JSON schema"| Gemini
+
+    Gemini -->|"Score + skills +<br/>recommendations + verdict"| Validator
+
+    Validator -->|"Validated result"| API
+
+    API -->|"JSON response"| User
+
+    GitHub -->|"Prompt file"| Template

@@ -1,0 +1,27 @@
+sequenceDiagram
+    actor User as Job Seeker / Recruiter
+    participant API as REST API /match
+    participant Input as Input Processor
+    participant Prompt as Prompt Builder
+    participant Gemini as Gemini API
+    participant Validator as Result Validator
+
+    User->>API: POST /match<br/>{cv, job_ad}
+    API->>Input: Validate & clean texts
+    Input-->>API: Clean CV + job ad + warnings
+
+    API->>Prompt: CV + job ad
+    Prompt->>Prompt: Fill prompt.json template
+    Prompt-->>API: System prompt + user prompt
+
+    API->>Gemini: generate_content(prompt, response_schema)
+    alt Gemini answered
+        Gemini-->>Validator: JSON answer
+    else No API key / API error
+        API->>Validator: Keyword-overlap fallback result
+    end
+
+    Validator->>Validator: Check fields, clamp score,<br/>match verdict to score
+    Validator-->>API: Validated result
+
+    API-->>User: JSON response<br/>{match_score, verdict, matched_skills,<br/>missing_skills, recommendations}

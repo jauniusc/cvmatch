@@ -1,0 +1,29 @@
+@startuml
+actor "Job Seeker / Recruiter" as User
+
+participant "REST API\n/match" as API
+participant "Input Processor" as Input
+participant "Prompt Builder" as Prompt
+participant "Gemini API" as Gemini
+participant "Result Validator" as Validator
+
+User -> API : POST /match\n{cv, job_ad}
+API -> Input : Validate & clean texts
+Input --> API : Clean CV + job ad + warnings
+
+API -> Prompt : CV + job ad
+Prompt -> Prompt : Fill prompt.json template
+Prompt --> API : System prompt + user prompt
+
+API -> Gemini : generate_content(prompt, response_schema)
+alt Gemini answered
+    Gemini --> Validator : JSON answer
+else No API key / API error
+    API -> Validator : Keyword-overlap fallback result
+end
+
+Validator -> Validator : Check fields, clamp score,\nmatch verdict to score
+Validator --> API : Validated result
+
+API --> User : JSON response\n{match_score, verdict, matched_skills,\nmissing_skills, recommendations}
+@enduml
