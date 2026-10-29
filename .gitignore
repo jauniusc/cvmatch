@@ -2,3 +2,8 @@
 outputs/
 .ipynb_checkpoints/
 __pycache__/
+
+# models saved by the notebooks
+notebooks/*.keras
+notebooks/hr_job_change_RandomForestModel_trees300/
+notebooks/saved_model_*/

@@ -12,11 +12,18 @@ matched and missing skills, and concrete recommendations for improving the CV.
 
 ```
 cvmatch/
-├── data/examples.json            # (X, y) pairs — 4 end-to-end examples
+├── data/
+│   ├── examples.json             # (X, y) pairs — 4 end-to-end examples
+│   ├── hr_job_change/            # Kaggle HR data for task 1.3
+│   ├── documents/                # CV / letter / email / form scans for tasks 1.4–1.5
+│   └── photos/                   # workplace photos for task 1.5
 ├── prompts/
 │   └── prompt.json               # test prompt: system prompt + user template (used by Colab and for GPT testing)
 ├── diagrams/                     # PlantUML (.puml) and Mermaid (.mmd) sources + PNG
-└── notebooks/cvmatch_ai_gemini.ipynb   # Google Colab prototype with the Gemini API
+├── scripts/prepare_documents_dataset.py   # builds data/documents/ from RVL-CDIP
+└── notebooks/
+    ├── cvmatch_ai_gemini.ipynb   # Google Colab prototype with the Gemini API
+    └── 1_3_… 1_4_… 1_5_…         # TensorFlow tasks 1.3–1.5 (see below)
 ```
 
 ## Data
@@ -221,3 +228,18 @@ There is also a cell where you can paste your own CV and job ad.
 
 If no key is set, Gemini is not called and a basic keyword comparison fills in the answer instead, so every cell still
 runs, but the results are much less accurate.
+
+## Lab 1, tasks 1.3–1.5: TensorFlow
+
+Each notebook first explains how the lecturer's Colab notebook works, then redoes it with my own data and ends with conclusions.
+
+| Task | Notebook | My data | Result |
+|---|---|---|---|
+| 1.3 | [`1_3_hr_job_change_nn.ipynb`](notebooks/1_3_hr_job_change_nn.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jauniusc/cvmatch/blob/main/notebooks/1_3_hr_job_change_nn.ipynb) | [Kaggle HR: is the candidate looking for a new job?](data/hr_job_change/) | accuracy 0.765, AUC 0.794 |
+| 1.3 | [`1_3_hr_job_change_decision_forests.ipynb`](notebooks/1_3_hr_job_change_decision_forests.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jauniusc/cvmatch/blob/main/notebooks/1_3_hr_job_change_decision_forests.ipynb) | same | Random Forest: accuracy 0.792, AUC 0.803 |
+| 1.4 | [`1_4_documents_cnn.ipynb`](notebooks/1_4_documents_cnn.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jauniusc/cvmatch/blob/main/notebooks/1_4_documents_cnn.ipynb) | [scanned CVs, letters, emails, forms](data/documents/) | CNN 0.813, MLP 0.25 |
+| 1.5 | [`1_5_one_image_workplace.ipynb`](notebooks/1_5_one_image_workplace.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jauniusc/cvmatch/blob/main/notebooks/1_5_one_image_workplace.ipynb) | [workplace photos](data/photos/) + a CV scan | pretrained models, no training |
+| 1.5 | [`1_5_transfer_learning_documents.ipynb`](notebooks/1_5_transfer_learning_documents.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jauniusc/cvmatch/blob/main/notebooks/1_5_transfer_learning_documents.ipynb) | scanned documents | 0.855 (CNN from zero: 0.813) |
+
+To run a notebook: open it in Colab → Runtime → Run all (no API key needed). The data is read from this repository.
+The Decision Forests notebook uses YDF, because `tensorflow_decision_forests` no longer installs in Colab.
