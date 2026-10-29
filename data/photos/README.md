@@ -1,6 +1,6 @@
 # Workplace photos (task 1.5)
 
-Photos used in `notebooks/1_5_one_image_workplace.ipynb`. All are from Wikimedia Commons, saved here unchanged
+Photos used in `1.5/1_5_one_image_workplace.ipynb`. All are from Wikimedia Commons, saved here unchanged
 so the notebook doesn't depend on Wikimedia (it blocks too many downloads in a row).
 
 | File | Original | Author | License |
